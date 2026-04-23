@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Aether';
+  src: url('/fonts/AetherTRIAL-A.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aether';
+  src: url('/fonts/AetherTRIAL-AItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Aether';
+  src: url('/fonts/AetherTRIAL-AMono.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@theme {
+  --font-aether: 'Aether', serif;
+  --font-aether-mono: 'AetherMono', monospace;
+}
+
+body {
+  background-color: #EAD5C2;
+}
