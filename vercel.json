@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/winetasting",
-      "destination": "/",
+      "destination": "https://varaukset.tokoihakaniemi.fi",
       "permanent": false
     }
   ]
