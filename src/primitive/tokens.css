@@ -18,14 +18,14 @@
   --primitive-size-sm: 0.875rem; /* 14px */
   --primitive-size-base: 1rem; /* 16px */
   --primitive-size-lg: 1.125rem; /* 18px */
-  --primitive-size-3xl: 2.25rem; /* 36px */
-  --primitive-size-5xl: 3rem; /* 48px */
+  --primitive-size-3xl: 2.5rem; /* 40px */
+  --primitive-size-5xl: 3.5rem; /* 56px */
   --primitive-size-7xl: 4.5rem; /* 72px */
   --primitive-size-8xl: 6rem; /* 96px */
 
   /* Leading trims — per heading step, fixed per size */
-  --primitive-trim-heading-sm: -0.32rem;
-  --primitive-trim-heading-md: -0.45rem;
+  --primitive-trim-heading-sm: -0.38rem;
+  --primitive-trim-heading-md: -0.52rem;
   --primitive-trim-heading-lg: -0.68rem;
   --primitive-trim-heading-xl: -0.9rem;
 
@@ -43,6 +43,6 @@
   --primitive-tracking: 0.02em;
 
   /* Letter heights for grid calc — mobile / desktop */
-  --primitive-letter-h: 22px;
-  --primitive-letter-h-lg: 26px;
+  --primitive-logo-letter-h: 20px;
+  --primitive-logo-letter-h-lg: 26px;
 }

@@ -41,7 +41,9 @@
   grid-template-rows: repeat(4, minmax(0, 1fr));
   height: 100dvh;
   padding-top: max(1rem, env(safe-area-inset-top));
-  padding-bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--primitive-letter-h));
+  padding-bottom: calc(
+    max(1rem, env(safe-area-inset-bottom)) + var(--primitive-logo-letter-h)
+  );
   overflow: hidden;
 }
 
@@ -50,6 +52,13 @@
   grid-template-rows: repeat(4, minmax(0, 1fr));
   height: 100dvh;
   padding-top: max(1rem, env(safe-area-inset-top));
-  padding-bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--primitive-letter-h-lg));
+  padding-bottom: calc(
+    max(1rem, env(safe-area-inset-bottom)) + var(--primitive-logo-letter-h-lg)
+  );
   overflow: hidden;
+}
+
+@theme {
+  --height-logo-letter: var(--primitive-logo-letter-h);
+  --height-logo-letter-lg: var(--primitive-logo-letter-h-lg);
 }

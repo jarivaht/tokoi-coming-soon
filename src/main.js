@@ -42,7 +42,7 @@ app.innerHTML = /*html*/ `
           ${Heading({ text: "Tokoi<br>Summer<br>Popup", tag: "h1" })}
         </div>
         <div class="col-start-4 col-span-6 md:col-span-5 flex flex-col">
-          <span class="heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
+          <span class="hidden md:block heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
           <span class="heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
           ${Heading({ text: "Opening<br>Soon<br>13.6.2026", tag: "h2", className: "mb-8" })}
           <div class="hidden">
