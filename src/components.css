@@ -1,0 +1,39 @@
+/* =============================================================================
+   TOKOI COMPONENTS
+   Reusable UI components. Import after tokens.css + typography.css
+   ============================================================================= */
+
+/* Button: outlined, flips colors on hover */
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-aether);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-default);
+  color: var(--color-content-primary);
+  border: 1px solid var(--color-content-primary);
+  background: transparent;
+  padding: 0.5em 0.9em;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.btn-outline:hover {
+  color: var(--color-surface-primary);
+  background-color: var(--color-content-primary);
+}
+
+/* Vertical divider — matches parent line-height visually */
+.divider-vertical {
+  display: block;
+  width: 1px;
+  align-self: stretch;
+  background-color: var(--color-content-primary);
+  flex-shrink: 0;
+  margin: 0 1em;
+}

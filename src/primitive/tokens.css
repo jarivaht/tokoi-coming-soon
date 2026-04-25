@@ -1,0 +1,48 @@
+/* ============================================================
+   PRIMITIVE TOKENS
+   Raw values only. Never used directly in HTML.
+   All values consumed by semantic files via var(--)
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --primitive-brown: #582722;
+  --primitive-orange: #fd7c5a;
+
+  /* Font families */
+  --primitive-font-aether: "Aether", serif;
+  --primitive-font-aether-mono: "Aether", monospace;
+
+  /* Type scale — maps to Tailwind's size scale */
+  --primitive-size-xs: 0.75rem; /* 12px */
+  --primitive-size-sm: 0.875rem; /* 14px */
+  --primitive-size-base: 1rem; /* 16px */
+  --primitive-size-lg: 1.125rem; /* 18px */
+  --primitive-size-3xl: 2.25rem; /* 36px */
+  --primitive-size-5xl: 3rem; /* 48px */
+  --primitive-size-7xl: 4.5rem; /* 72px */
+  --primitive-size-8xl: 6rem; /* 96px */
+
+  /* Leading trims — per heading step, fixed per size */
+  --primitive-trim-heading-sm: -0.32rem;
+  --primitive-trim-heading-md: -0.45rem;
+  --primitive-trim-heading-lg: -0.68rem;
+  --primitive-trim-heading-xl: -0.9rem;
+
+  /* Leading trims — per body step */
+  --primitive-trim-body-sm: -0.11rem;
+  --primitive-trim-body-md: -0.13rem;
+  --primitive-trim-body-lg: -0.15rem;
+  --primitive-trim-body-xl: -0.17rem;
+
+  /* Line heights */
+  --primitive-leading-heading: 1.02;
+  --primitive-leading-body: 1.15;
+
+  /* Letter spacing */
+  --primitive-tracking: 0.02em;
+
+  /* Letter heights for grid calc — mobile / desktop */
+  --primitive-letter-h: 22px;
+  --primitive-letter-h-lg: 26px;
+}

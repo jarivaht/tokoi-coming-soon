@@ -1,0 +1,149 @@
+/* ============================================================
+   SEMANTIC TYPOGRAPHY
+   Font declarations + Tailwind theme tokens + compound utilities
+   ============================================================ */
+
+@font-face {
+  font-family: "Aether";
+  src: url("/fonts/AetherTRIAL-A.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aether";
+  src: url("/fonts/AetherTRIAL-AItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aether";
+  src: url("/fonts/AetherTRIAL-AMono.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@theme {
+  --font-aether: var(--primitive-font-aether);
+  --font-aether-mono: var(--primitive-font-aether-mono);
+
+  /* Custom breakpoint */
+  --breakpoint-3xl: 1720px;
+}
+
+/* ============================================================
+     HEADING UTILITIES
+     heading-sm → heading-xl, one per breakpoint step
+     Each includes: font, size, leading, tracking
+     ============================================================ */
+
+@utility heading-sm {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-3xl);
+  line-height: var(--primitive-leading-heading);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility heading-md {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-5xl);
+  line-height: var(--primitive-leading-heading);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility heading-lg {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-7xl);
+  line-height: var(--primitive-leading-heading);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility heading-xl {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-8xl);
+  line-height: var(--primitive-leading-heading);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+/* ============================================================
+     HEADING TRIM UTILITIES
+     Fixed negative margin-top per step to remove leading above cap height
+     ============================================================ */
+
+@utility leading-trim-heading-sm {
+  margin-top: var(--primitive-trim-heading-sm);
+}
+
+@utility leading-trim-heading-md {
+  margin-top: var(--primitive-trim-heading-md);
+}
+
+@utility leading-trim-heading-lg {
+  margin-top: var(--primitive-trim-heading-lg);
+}
+
+@utility leading-trim-heading-xl {
+  margin-top: var(--primitive-trim-heading-xl);
+}
+
+/* ============================================================
+     BODY UTILITIES
+     body-sm → body-xl, one per breakpoint step
+     ============================================================ */
+
+@utility body-sm {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-xs);
+  line-height: var(--primitive-leading-body);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility body-md {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-sm);
+  line-height: var(--primitive-leading-body);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility body-lg {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-base);
+  line-height: var(--primitive-leading-body);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+@utility body-xl {
+  font-family: var(--primitive-font-aether);
+  font-size: var(--primitive-size-lg);
+  line-height: var(--primitive-leading-body);
+  letter-spacing: var(--primitive-tracking);
+  font-weight: 400;
+}
+
+/* ============================================================
+     BODY TRIM UTILITIES
+     ============================================================ */
+
+@utility leading-trim-body-sm {
+  margin-top: var(--primitive-trim-body-sm);
+}
+
+@utility leading-trim-body-md {
+  margin-top: var(--primitive-trim-body-md);
+}
+
+@utility leading-trim-body-lg {
+  margin-top: var(--primitive-trim-body-lg);
+}
+
+@utility leading-trim-body-xl {
+  margin-top: var(--primitive-trim-body-xl);
+}

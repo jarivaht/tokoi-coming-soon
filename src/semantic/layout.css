@@ -1,0 +1,55 @@
+/* ============================================================
+   SEMANTIC LAYOUT
+   Only what Tailwind can't express natively:
+   - 100dvh height
+   - Safe area utilities (fallback = Tailwind p-4 / 1rem / 16px)
+   - Content grid with calculated row heights matching logo letter positions
+
+   Grid logic:
+   5 letters, justify-between, safe padding top + bottom.
+   Row height = (100dvh - safe-t - safe-b - lastLetterH) / 4
+   padding-top = safe-t so row 1 top aligns with T top.
+   minmax(0, 1fr) forces equal rows regardless of content size.
+   ============================================================ */
+
+@utility h-dvh {
+  height: 100dvh;
+}
+
+/* Safe area utilities — fallback = Tailwind p-4 (1rem / 16px) */
+@utility pt-safe {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+@utility pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+@utility top-safe {
+  top: max(1rem, env(safe-area-inset-top));
+}
+@utility bottom-safe {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Right edge aligned to Tailwind p-2 (0.5rem / 8px) */
+@utility right-grid {
+  right: 0.5rem;
+}
+
+/* Mobile: last letter (I) = 20px */
+@utility grid-content {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  height: 100dvh;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--primitive-letter-h));
+  overflow: hidden;
+}
+
+@utility grid-content-lg {
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  height: 100dvh;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--primitive-letter-h-lg));
+  overflow: hidden;
+}
