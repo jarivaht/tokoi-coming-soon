@@ -70,7 +70,6 @@ app.innerHTML = /*html*/ `
 
 `;
 
-// Animation sequence
 requestAnimationFrame(() => {
   const logo = document.getElementById("logo");
   const letters = ["logo-t", "logo-o1", "logo-k", "logo-o2", "logo-i"].map(
@@ -81,78 +80,70 @@ requestAnimationFrame(() => {
   const bottomInfo = document.getElementById("bottom-info");
   const copyright = document.getElementById("copyright");
 
+  const logoWidth = window.innerWidth < 1024 ? "90vw" : "75vw";
+  logo.style.width = logoWidth;
+
+  // Capture initial horizontal centered positions
+  const startRects = letters.map((l) => l.getBoundingClientRect());
+
+  // Switch to final state instantly
+  logo.classList.remove(
+    "top-1/2",
+    "left-1/2",
+    "-translate-x-1/2",
+    "-translate-y-1/2",
+    "flex-row",
+    "justify-between",
+  );
+  logo.style.width = "";
+  logo.classList.add(
+    "top-0",
+    "left-0",
+    "flex-col",
+    "justify-between",
+    "items-center",
+    "h-dvh",
+    "w-12",
+  );
+  logo.style.paddingTop = "max(1rem, env(safe-area-inset-top))";
+  logo.style.paddingBottom = "max(1rem, env(safe-area-inset-bottom))";
+
+  gsap.set(logo, { transformOrigin: "top right" });
+  // Capture final positions
+  const endRects = letters.map((l) => l.getBoundingClientRect());
+
+  // Move each letter back to start instantly
+  letters.forEach((letter, i) => {
+    const dx = startRects[i].left - endRects[i].left;
+    const dy = startRects[i].top - endRects[i].top;
+    gsap.set(letter, { x: dx, y: dy });
+  });
+
   const tl = gsap.timeline();
 
-  // Step 1: logo fades in — still in CSS centered horizontal position
+  // Step 1: logo fades in at centered position
   tl.from(logo, {
     opacity: 0,
-    duration: 0.2, // ← faster fade in
+    duration: 0.4,
     ease: "power4.inOut",
   })
 
-    // Step 2: after fade, switch layout and animate letters to vertical
-    .add(() => {
-      const startRects = letters.map((l) => l.getBoundingClientRect());
-
-      // Switch to final state
-      logo.classList.remove(
-        "top-1/2",
-        "left-1/2",
-        "-translate-x-1/2",
-        "-translate-y-1/2",
-        "flex-row",
-        "justify-between",
-      );
-      logo.style.width = "";
-      logo.classList.add(
-        "top-0",
-        "left-0",
-        "flex-col",
-        "justify-between",
-        "items-center",
-        "h-dvh",
-        "w-12",
-      );
-      logo.style.paddingTop = "max(1rem, env(safe-area-inset-top))";
-      logo.style.paddingBottom = "max(1rem, env(safe-area-inset-bottom))";
-
-      const endRects = letters.map((l) => l.getBoundingClientRect());
-
-      // Center the logo container horizontally
-      const logoRect = logo.getBoundingClientRect();
-      const slideX = window.innerWidth / 2 - logoRect.width / 2;
-      gsap.set(logo, { x: slideX });
-
-      // Put letters back to their horizontal positions
-      letters.forEach((letter, i) => {
-        const dx = startRects[i].left - endRects[i].left - slideX;
-        const dy = startRects[i].top - endRects[i].top;
-        gsap.set(letter, { x: dx, y: dy });
-      });
-
-      // Animate letters to vertical centered
-      gsap.to(letters, {
-        x: 0,
-        y: 0,
-        duration: 0.6, // ← faster vertical transform
-        ease: "power4.inOut",
-        delay: 0.2, // ← shorter pause after fade
-      });
-    })
-
-    // Step 3: logo slides left, bg + content fade in
-    .to(logo, {
+    // Step 2: letters animate to final positions simultaneously
+    .to(letters, {
       x: 0,
-      duration: 0.8, // ← slower slide
+      y: 0,
+      duration: 0.8,
       ease: "power4.inOut",
-      delay: 0.8, // ← this controls the pause between vertical and slide
+      delay: 0.6,
     })
+
+    // Step 3: content fades in
     .to(
       [pageContent, bottomInfo, copyright],
       {
         opacity: 1,
-        duration: 0.8, // ← slower content reveal
-        ease: "power2.out",
+        duration: 0.8,
+        ease: "power4.out",
         delay: 0.2,
       },
       "<+0.2",
