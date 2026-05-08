@@ -39,14 +39,13 @@ app.innerHTML = /*html*/ `
       <!-- ROW 2: Headings — top aligns with first O -->
       <div class="grid grid-cols-10 gap-2 self-start items-start">
         <div class="col-span-10 md:col-span-5 flex flex-col">
-          ${Heading({ text: "Tokoi<br>Summer<br>Popup", tag: "h1" })}
+          ${Heading({ text: "Tokoi<br>Summer<br>Pop-up", tag: "h1" })}
         </div>
         <div class="col-start-4 col-span-6 md:col-span-5 flex flex-col">
-          <span class="hidden md:block heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
           <span class="heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
-          ${Heading({ text: "Opening<br>Soon<br>13.6.2026", tag: "h2", className: "mb-8" })}
-          <div class="hidden">
-            ${Button({ href: "/winetasting", label: "Wine tasting reservations →" })}
+          ${Heading({ text: "Opening<br>Soon<br>13.6.2026", tag: "h2", className: "mb-8 md:mb-12" })}
+          <div class="">
+            ${Button({ href: "varaukset.tokoihakaniemi.fi", label: "Wine tasting reservations →" })}
           </div>
         </div>
       </div>
