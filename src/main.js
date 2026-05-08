@@ -69,6 +69,20 @@ app.innerHTML = /*html*/ `
 
 `;
 
+const bgDesktop = document.getElementById("bg-desktop");
+const bgMobile = document.getElementById("bg-mobile");
+
+[bgDesktop, bgMobile].forEach(img => {
+  if (!img) return;
+  if (img.complete) {
+    gsap.to(img, { opacity: 1, duration: 0.8, ease: "power2.out" });
+  } else {
+    img.addEventListener("load", () => {
+      gsap.to(img, { opacity: 1, duration: 0.8, ease: "power2.out" });
+    });
+  }
+});
+
 requestAnimationFrame(() => {
   const logo = document.getElementById("logo");
   const letters = ["logo-t", "logo-o1", "logo-k", "logo-o2", "logo-i"].map(
