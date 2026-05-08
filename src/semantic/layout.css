@@ -12,6 +12,11 @@
    minmax(0, 1fr) forces equal rows regardless of content size.
    ============================================================ */
 
+
+@theme {
+  --breakpoint-xs: 390px;
+}
+
 @utility h-dvh {
   height: 100dvh;
 }
