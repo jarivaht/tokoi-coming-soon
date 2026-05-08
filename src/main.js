@@ -45,7 +45,7 @@ app.innerHTML = /*html*/ `
           <span class="heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
           ${Heading({ text: "Opening<br>Soon<br>13.6.2026", tag: "h2", className: "mb-8 md:mb-12" })}
           <div class="">
-            ${Button({ href: "varaukset.tokoihakaniemi.fi", label: "Wine tasting reservations →" })}
+            ${Button({ href: "https://varaukset.tokoihakaniemi.fi", label: "Wine tasting reservations →" })}
           </div>
         </div>
       </div>
