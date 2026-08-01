@@ -1,164 +1,124 @@
 import "./style.css";
 
 import { gsap } from "gsap";
-import { Flip } from "gsap/Flip";
 
-import { Background } from "./components/Background.js";
 import { Logo } from "./components/Logo.js";
-import { Heading } from "./components/Heading.js";
-import { TwoColumnText } from "./components/TwoColumnText.js";
-import { Button } from "./components/Button.js";
 import { Text } from "./components/Text.js";
-import { Copyright } from "./components/Copyright.js";
 
-gsap.registerPlugin(Flip);
-
-// Hide everything except logo initially
 const app = document.querySelector("#app");
+
+const marqueeItems = [
+  "Coffee",
+  "/",
+  "Wine",
+  "/",
+  "Beer",
+  "/",
+  "Tapas",
+  "/",
+  "Selected vintage furniture",
+  "/",
+];
+
+const marqueeHTML = marqueeItems
+  .map(
+    (item) =>
+      `<span class="shrink-0 body-md md:body-lg lg:body-xl 3xl:body-xl italic text-content">${item}</span>`,
+  )
+  .join("");
 
 app.innerHTML = /*html*/ `
 
-  ${Background()}
-
+  <img src="/images/tokoi-top-center.svg"   aria-hidden="true" class="fixed top-0 left-5/8 -translate-x-1/2 pointer-events-none z-0 w-80 lg:w-auto" />
+  <img src="/images/tokoi-bottom-left.svg"  aria-hidden="true" class="fixed bottom-0 left-0 pointer-events-none z-0 w-40 lg:w-60" />
+  <img src="/images/tokoi-bottom-right.svg" aria-hidden="true" class="fixed bottom-0 right-0 pointer-events-none z-20 w-24 lg:w-auto" />
+ 
   ${Logo()}
 
-  <!-- Page: 12-col grid, gap-2 (8px), px-2 (8px) -->
-  <div id="page-content" class="grid grid-cols-12 gap-2 px-2 w-screen h-dvh overflow-hidden opacity-0">
+  <div class="grid grid-cols-12 gap-2 pl-10 px-2 w-screen lg:h-dvh lg:overflow-hidden">
 
-    <!-- Content column: 4 rows preserve T O K O alignment -->
-    <div class="col-start-3 col-span-10 grid-content lg:grid-content-lg">
-
-      <!-- ROW 1: Tagline — top aligns with T -->
-      ${TwoColumnText({
-        left: "Smallest wine bar<br>and cafe in town",
-        right: "Selected vintage<br>furniture",
-        italic: true,
-        trim: true,
-      })}
-
-      <!-- ROW 2: Headings — top aligns with first O -->
-      <div class="grid grid-cols-10 gap-2 self-start items-start">
-        <div class="col-span-10 md:col-span-5 flex flex-col">
-          ${Heading({ text: "Tokoi<br>Summer<br>Pop-up", tag: "h1" })}
-        </div>
-        <div class="col-start-4 col-span-6 md:col-span-5 flex flex-col">
-          <span class="heading-sm md:heading-md lg:heading-lg 3xl:heading-xl select-none" aria-hidden="true">&nbsp;</span>
-          ${Heading({ text: "Opening<br>Soon<br>13.6.2026", tag: "h2", className: "mb-8 md:mb-12" })}
-        </div>
-        <div class="col-span-10 xs:col-start-4 xs:col-span-6 md:col-start-6 md:col-span-5 flex flex-col">
-            ${Button({ href: "https://varaukset.tokoihakaniemi.fi", label: "Wine tasting reservations →" })}
-          </div>
-      </div>
+    <div class="col-start-2 col-span-11 lg:col-start-8 lg:col-span-5 lg:h-dvh py-2 overflow-hidden z-10">
+      <img
+        id="fp-image"
+        src="/images/tokoi_fp_image.jpg"
+        alt="Tokoi bar"
+        class="w-full h-auto lg:h-full lg:object-cover opacity-0"
+      />
     </div>
-  </div>
 
-  <!-- Bottom info: fixed to viewport bottom, aligned to page grid -->
-  <div id="bottom-info" class="fixed bottom-safe left-0 w-screen px-2 z-10 opacity-0">
-    <div class="grid grid-cols-12 gap-2">
-      <div class="col-start-3 col-span-10">
-        ${Text({
-          text: "Siltasaarenkatu 11<br>00580 Helsinki",
-        })}
+    <div class="col-start-2 col-span-11 lg:col-start-2 lg:col-span-5 lg:py-2 flex lg:order-first flex-col gap-24 lg:gap-0 pb-safe lg:pb-2 lg:justify-between lg:h-screen z-100">
+
+
+      <div class="overflow-hidden w-full">
+        <div id="marquee" class="flex flex-row gap-6 w-max">
+          ${marqueeHTML}${marqueeHTML}
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div id="copyright" class="opacity-0">
-    ${Copyright({ name: "Tokoi", year: "2026" })}
+      <div class="flex flex-row justify-between items-start w-full">
+        ${Text({ text: "Open", trim: true })}
+        ${Text({ text: "Tue–Sat", trim: true })}
+        ${Text({ text: "15–22", trim: true })}
+      </div>
+
+      <!-- Info -->
+      <div class="flex flex-col gap-2">
+        <div class="flex flex-row justify-between">
+          ${Text({ text: "+358" })}
+          ${Text({ text: "40" })}
+          ${Text({ text: "673" })}
+          ${Text({ text: "8770" })}
+        </div>
+        <div class="flex flex-row justify-between">
+          ${Text({ text: "ig" })}
+          ${Text({ text: "@" })}
+          ${Text({ text: "roihupellonvintagevarasto" })}
+        </div>
+        <div class="flex flex-row justify-between">
+          ${Text({ text: "anna" })}
+          ${Text({ text: "@" })}
+          ${Text({ text: "brukhelsinki" })}
+          ${Text({ text: ".fi" })}
+        </div>
+        <div class="flex flex-row justify-between">
+          ${Text({ text: "Siltasaarenkatu" })}
+          ${Text({ text: "11" })}
+          ${Text({ text: "00530" })}
+          ${Text({ text: "Helsinki" })}
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 `;
 
-const bgDesktop = document.getElementById("bg-desktop");
-const bgMobile = document.getElementById("bg-mobile");
-
-[bgDesktop, bgMobile].forEach(img => {
-  if (!img) return;
-  if (img.complete) {
-    gsap.to(img, { opacity: 1, duration: 0.8, ease: "power2.out" });
+// Image fade on load
+const fpImage = document.getElementById("fp-image");
+if (fpImage) {
+  if (fpImage.complete) {
+    gsap.to(fpImage, { opacity: 1, duration: 0.8, ease: "power2.out" });
   } else {
-    img.addEventListener("load", () => {
-      gsap.to(img, { opacity: 1, duration: 0.8, ease: "power2.out" });
+    fpImage.addEventListener("load", () => {
+      gsap.to(fpImage, { opacity: 1, duration: 0.8, ease: "power2.out" });
     });
   }
-});
+}
 
-requestAnimationFrame(() => {
-  const logo = document.getElementById("logo");
-  const letters = ["logo-t", "logo-o1", "logo-k", "logo-o2", "logo-i"].map(
-    (id) => document.getElementById(id),
-  );
-  const bg = document.getElementById("background");
-  const pageContent = document.getElementById("page-content");
-  const bottomInfo = document.getElementById("bottom-info");
-  const copyright = document.getElementById("copyright");
+// Marquee animation
+const marquee = document.getElementById("marquee");
+if (marquee) {
+  // Width of one set of items (half the total)
+  const totalWidth = marquee.scrollWidth / 2;
 
-  const logoWidth = window.innerWidth < 1024 ? "90vw" : "75vw";
-  logo.style.width = logoWidth;
-
-  // Capture initial horizontal centered positions
-  const startRects = letters.map((l) => l.getBoundingClientRect());
-
-  // Switch to final state instantly
-  logo.classList.remove(
-    "top-1/2",
-    "left-1/2",
-    "-translate-x-1/2",
-    "-translate-y-1/2",
-    "flex-row",
-    "justify-between",
-  );
-  logo.style.width = "";
-  logo.classList.add(
-    "top-0",
-    "left-0",
-    "flex-col",
-    "justify-between",
-    "items-center",
-    "h-dvh",
-    "w-12",
-  );
-  logo.style.paddingTop = "max(1rem, env(safe-area-inset-top))";
-  logo.style.paddingBottom = "max(1rem, env(safe-area-inset-bottom))";
-
-  gsap.set(logo, { transformOrigin: "top right" });
-  // Capture final positions
-  const endRects = letters.map((l) => l.getBoundingClientRect());
-
-  // Move each letter back to start instantly
-  letters.forEach((letter, i) => {
-    const dx = startRects[i].left - endRects[i].left;
-    const dy = startRects[i].top - endRects[i].top;
-    gsap.set(letter, { x: dx, y: dy });
+  gsap.to(marquee, {
+    x: -totalWidth,
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+    modifiers: {
+      x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
+    },
   });
-
-  const tl = gsap.timeline();
-
-  // Step 1: logo fades in at centered position
-  tl.from(logo, {
-    opacity: 0,
-    duration: 0.4,
-    ease: "power4.inOut",
-  })
-
-    // Step 2: letters animate to final positions simultaneously
-    .to(letters, {
-      x: 0,
-      y: 0,
-      duration: 0.8,
-      ease: "power4.inOut",
-      delay: 0.6,
-    })
-
-    // Step 3: content fades in
-    .to(
-      [pageContent, bottomInfo, copyright],
-      {
-        opacity: 1,
-        duration: 0.8,
-        ease: "power4.out",
-        delay: 0.2,
-      },
-      "<+0.2",
-    );
-});
+}

@@ -6,7 +6,7 @@
 //   trim:   boolean — applies leading trim for top alignment
 
 export function Text({ text, italic = false, trim = false }) {
-  const sizeClasses = "body-sm md:body-md lg:body-lg 3xl:body-xl";
+  const sizeClasses = "body-md md:body-lg lg:body-xl 3xl:body-xl";
   const trimClasses = trim
     ? "leading-trim-body-sm md:leading-trim-body-md lg:leading-trim-body-lg 3xl:leading-trim-body-xl"
     : "";

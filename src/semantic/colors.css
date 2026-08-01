@@ -1,15 +1,14 @@
 /* ============================================================
    SEMANTIC COLORS
-   Maps primitives to roles. Generates bg-surface, text-content etc.
    ============================================================ */
 
    @theme {
-    --color-surface:    var(--primitive-brown);
-    --color-content:    var(--primitive-orange);
+    --color-surface:    var(--primitive-bg);
+    --color-content:    var(--primitive-text);
+    --color-graphics:   var(--primitive-graphics);
   }
   
-  /* Base */
   body {
-    background-color: var(--primitive-brown);
-    color: var(--primitive-orange);
-  }∑
+    background-color: var(--primitive-bg);
+    color: var(--primitive-text);
+  }

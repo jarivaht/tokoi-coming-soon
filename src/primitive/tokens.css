@@ -4,45 +4,44 @@
    All values consumed by semantic files via var(--)
    ============================================================ */
 
-:root {
-  /* Colors */
-  --primitive-brown: #582722;
-  --primitive-orange: #fd7c5a;
-
-  /* Font families */
-  --primitive-font-aether: "Aether", serif;
-  --primitive-font-aether-mono: "Aether", monospace;
-
-  /* Type scale — maps to Tailwind's size scale */
-  --primitive-size-xs: 0.75rem; /* 12px */
-  --primitive-size-sm: 0.875rem; /* 14px */
-  --primitive-size-base: 1rem; /* 16px */
-  --primitive-size-lg: 1.125rem; /* 18px */
-  --primitive-size-3xl: 2.5rem; /* 40px */
-  --primitive-size-5xl: 3.5rem; /* 56px */
-  --primitive-size-7xl: 4.5rem; /* 72px */
-  --primitive-size-8xl: 6rem; /* 96px */
-
-  /* Leading trims — per heading step, fixed per size */
-  --primitive-trim-heading-sm: -0.38rem;
-  --primitive-trim-heading-md: -0.52rem;
-  --primitive-trim-heading-lg: -0.68rem;
-  --primitive-trim-heading-xl: -0.9rem;
-
-  /* Leading trims — per body step */
-  --primitive-trim-body-sm: -0.11rem;
-  --primitive-trim-body-md: -0.13rem;
-  --primitive-trim-body-lg: -0.15rem;
-  --primitive-trim-body-xl: -0.17rem;
-
-  /* Line heights */
-  --primitive-leading-heading: 1.02;
-  --primitive-leading-body: 1.15;
-
-  /* Letter spacing */
-  --primitive-tracking: 0.02em;
-
-  /* Letter heights for grid calc — mobile / desktop */
-  --primitive-logo-letter-h: 20px;
-  --primitive-logo-letter-h-lg: 26px;
-}
+   :root {
+    /* Colors */
+    --primitive-bg:             #EE7657;
+    --primitive-text:           #1A394A;
+    --primitive-graphics:       #E1CDBD;
+  
+    /* Font families */
+    --primitive-font-aether:        'Aether', serif;
+    --primitive-font-aether-mono:   'Aether', monospace;
+  
+    /* Type scale */
+    --primitive-size-xs:            0.75rem;
+    --primitive-size-sm:            0.875rem;
+    --primitive-size-base:          1rem;
+    --primitive-size-lg:            1.125rem;
+    --primitive-size-3xl:           2.25rem;
+    --primitive-size-5xl:           3rem;
+    --primitive-size-7xl:           4.5rem;
+    --primitive-size-8xl:           6rem;
+  
+    /* Leading trims */
+    --primitive-trim-heading-sm:    -0.32rem;
+    --primitive-trim-heading-md:    -0.45rem;
+    --primitive-trim-heading-lg:    -0.68rem;
+    --primitive-trim-heading-xl:    -0.9rem;
+    --primitive-trim-body-sm:       -0.11rem;
+    --primitive-trim-body-md:       -0.13rem;
+    --primitive-trim-body-lg:       -0.15rem;
+    --primitive-trim-body-xl:       -0.17rem;
+  
+    /* Line heights */
+    --primitive-leading-heading:    1.02;
+    --primitive-leading-body:       1.15;
+  
+    /* Letter spacing */
+    --primitive-tracking:           0.02em;
+  
+    /* Letter heights for grid calc */
+    --primitive-letter-h:           18px;
+    --primitive-letter-h-lg:        22px;
+  }

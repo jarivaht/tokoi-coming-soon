@@ -21,6 +21,10 @@
   height: 100dvh;
 }
 
+@utility filter-content {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(28%) saturate(748%) hue-rotate(158deg) brightness(94%) contrast(96%);
+}
+
 /* Safe area utilities — fallback = Tailwind p-4 (1rem / 16px) */
 @utility pt-safe {
   padding-top: max(1rem, env(safe-area-inset-top));
@@ -64,6 +68,6 @@
 }
 
 @theme {
-  --height-logo-letter: var(--primitive-logo-letter-h);
-  --height-logo-letter-lg: var(--primitive-logo-letter-h-lg);
+  --height-logo-letter: var(--primitive-letter-h);
+  --height-logo-letter-lg: var(--primitive-letter-h-lg);
 }
